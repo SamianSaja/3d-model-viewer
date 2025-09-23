@@ -179,6 +179,13 @@ const LandingPage = () => {
       <footer className="relative z-10 text-center py-8 text-gray-400">
         <p>&copy; 2024 Adobe Systems Incorporated. All rights reserved.</p>
       </footer>
+
+      {/* Login Modal */}
+      <LoginModal 
+        isOpen={showLoginModal}
+        onClose={() => setShowLoginModal(false)}
+        onSuccess={() => navigate('/app')}
+      />
     </div>
   );
 };
