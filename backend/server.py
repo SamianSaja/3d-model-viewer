@@ -1,13 +1,11 @@
-from fastapi import FastAPI, APIRouter, File, UploadFile, HTTPException
+from fastapi import FastAPI, APIRouter, HTTPException
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
 from dotenv import load_dotenv
 from starlette.middleware.cors import CORSMiddleware
-import os
 import logging
 from pathlib import Path
 from pydantic import BaseModel, Field
-from typing import List
 import uuid
 from datetime import datetime
 
