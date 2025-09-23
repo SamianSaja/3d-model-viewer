@@ -60,6 +60,16 @@ function Character3D() {
 
 const LandingPage = () => {
   const navigate = useNavigate();
+  const { isAuthenticated } = useAuth();
+  const [showLoginModal, setShowLoginModal] = useState(false);
+
+  const handleGetStarted = () => {
+    if (isAuthenticated) {
+      navigate('/app');
+    } else {
+      setShowLoginModal(true);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 text-white relative overflow-hidden">
