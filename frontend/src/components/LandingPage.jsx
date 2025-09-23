@@ -139,14 +139,14 @@ const LandingPage = () => {
           >
             <Button 
               className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-lg rounded-lg"
-              onClick={() => navigate('/app')}
+              onClick={handleGetStarted}
             >
-              Sign Up for Free
+              {isAuthenticated ? 'Go to App' : 'Sign Up for Free'}
             </Button>
             <Button 
               variant="outline" 
               className="border-gray-600 text-white hover:bg-gray-800 px-8 py-4 text-lg rounded-lg"
-              onClick={() => navigate('/app')}
+              onClick={() => setShowLoginModal(true)}
             >
               Log In
             </Button>
