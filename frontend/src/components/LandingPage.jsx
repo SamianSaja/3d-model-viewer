@@ -101,15 +101,15 @@ const LandingPage = () => {
           <Button 
             variant="ghost" 
             className="text-gray-300 hover:text-white"
-            onClick={() => navigate('/app')}
+            onClick={() => setShowLoginModal(true)}
           >
             Log in
           </Button>
           <Button 
             className="bg-blue-600 hover:bg-blue-700 text-white"
-            onClick={() => navigate('/app')}
+            onClick={handleGetStarted}
           >
-            Sign up
+            {isAuthenticated ? 'Go to App' : 'Sign up'}
           </Button>
         </div>
       </header>
