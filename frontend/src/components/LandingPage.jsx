@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { Button } from './ui/button';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, useGLTF, Float } from '@react-three/drei';
+import LoginModal from './auth/LoginModal';
+import { useAuth } from '../contexts/AuthContext';
 
 // Simple 3D Character Component
 function Character3D() {
