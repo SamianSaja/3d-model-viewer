@@ -1,5 +1,5 @@
 # Frontend Dockerfile
-FROM node:18-alpine as builder
+FROM node:20.11-alpine AS builder
 
 WORKDIR /app
 
@@ -8,7 +8,11 @@ COPY frontend/package*.json ./
 COPY frontend/yarn.lock ./
 
 # Install dependencies
-RUN yarn install --frozen-lockfile
+RUN apk add --no-cache --update python3 make g++ \
+    && yarn config set python /usr/bin/python3 \
+    && yarn install --frozen-lockfile --network-timeout 300000 \
+    && apk del python3 make g++ \
+    && yarn cache clean
 
 # Copy source code
 COPY frontend/ ./
